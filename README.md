@@ -1,3 +1,5 @@
+Forked from crow1011/wazuh2thehive
+
 _en_
 ## Wazuh and TheHive integration
 This project integrates SIEM Wazuh and TheHive. Use the following instructions to configure:
