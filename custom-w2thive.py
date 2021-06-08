@@ -137,8 +137,10 @@ def generate_alert(format_alt, artifacts_dict,w_alert):
     for key,value in artifacts_dict.items():
         for val in value:
             artifacts.append(AlertArtifact(dataType=key, data=val))
+    rule_level = w_alert['rule']['level']
+    tlp_converted = generate_tlp(rule_level)
     alert = Alert(title=w_alert['rule']['description'],
-              tlp=2,
+              tlp=tlp_converted,
               tags=['wazuh', 
               'rule='+w_alert['rule']['id'], 
               'agent_name='+w_alert['agent']['name'],
@@ -152,6 +154,15 @@ def generate_alert(format_alt, artifacts_dict,w_alert):
     return alert
 
 
+def generate_tlp(level):
+    if level <= 3:
+        return 0
+    elif level <= 6:
+        return 1
+    elif level <= 9:
+        return 2
+    else:
+        return 3
 
 
 def send_alert(alert, thive_api):
