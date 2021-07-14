@@ -53,4 +53,3 @@ lvl_threshold = 0
 ```
 Events with a severity level equal to or greater will be sent to TheHive. You can read more about event classification in Wazuh here: [wazuh-rules-classification](https://documentation.wazuh.com/3.12/user-manual/ruleset/rules-classification.html)
 
-Vadim M.
